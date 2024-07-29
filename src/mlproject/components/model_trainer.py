@@ -10,6 +10,8 @@ from mlproject.utils import save_object, evaluate_models
 
 
 from dataclasses import dataclass
+import numpy as np
+import dagshub
 from catboost import CatBoostRegressor
 from sklearn.ensemble import (
     AdaBoostRegressor,
@@ -17,7 +19,7 @@ from sklearn.ensemble import (
     RandomForestRegressor
 )
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
@@ -35,6 +37,13 @@ class ModelTrainerConfig:
 class ModelTrainer:
     def __init__(self):
         self.model_trainer_config=ModelTrainerConfig()
+    
+    def eval_metrics(self,actual, pred):
+        rmse = np.sqrt(mean_squared_error(actual, pred))
+        mae = mean_absolute_error(actual, pred)
+        r2 = r2_score(actual, pred)
+        return rmse, mae, r2
+    
         
     def initiate_model_trainer(self, train_array, test_array):
         try:
@@ -124,12 +133,13 @@ class ModelTrainer:
 
             best_params = params[actual_model]
             
-            # MLFLOW and DagsHub
-            
+
+            # Initialize DagsHub for MLflow
+            dagshub.init(repo_owner='ajitmane36', repo_name='mlproject', mlflow=True)
             mlflow.set_registry_uri("https://dagshub.com/ajitmane36/mlproject.mlflow")
             tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-            # mlflow
+            # mlflow logging
 
             with mlflow.start_run():
 

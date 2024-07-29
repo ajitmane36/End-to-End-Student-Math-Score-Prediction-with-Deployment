@@ -12,6 +12,7 @@ from mlproject.components.data_ingestion import DataIngestion
 from mlproject.components.data_ingestion import DataIngestionConfig
 from mlproject.components.data_transformation import DataTransformationConfig,DataTransformation
 from mlproject.components.model_trainer import ModelTrainerConfig, ModelTrainer
+from mlproject.components.model_monitering import ModelMonitoring
 
 
 
@@ -34,6 +35,11 @@ if __name__ == "__main__":
         ## Model Traning
         model_trainer=ModelTrainer()
         print(model_trainer.initiate_model_trainer(train_arr,test_arr))
+        
+        ## Model Monitoring
+        model_monitoring = ModelMonitoring()
+        model_monitoring.generate_report(train_arr, test_arr)
+        logging.info("Model monitoring completed.")
         
     except Exception as e:
         logging.info("Custom Exception")

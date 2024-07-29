@@ -9,3 +9,5 @@ scikit-learn
 catboost
 xgboost
 mlflow
+dagshub
+evidently
