@@ -3,13 +3,9 @@ import os
 import mlflow
 import pandas as pd
 import numpy as np
-from evidently import *
-
-from evidently.report import Report
-from evidently.metric_plots import MetricPlot
-from evidently.model_profile import Profile
-from evidently.metric_functions import mean_absolute_error, mean_squared_error, r2_score
-from evidently.model_profile.sections import DataDriftProfileSection, RegressionPerformanceProfileSection
+from evidently import ColumnMapping
+from evidently import Report
+from evidently.metrics import DataDriftMetric, RegressionPerformanceMetric
 
 # Set the path to the src directory
 sys.path.append(os.path.abspath("C:\\Users\\ajitm\\.vscode\\data\\mlproject\\src"))
@@ -66,38 +62,27 @@ class ModelMonitoring:
             y_pred = model.predict(X_test)
             logging.info("Generated predictions for the test set.")
 
+            # Define the column mapping
+            column_mapping = ColumnMapping(
+                target=target_column_name,
+                prediction="prediction"
+            )
+
             # Create an Evidently report
-            report = Report()
+            report = Report(metrics=[
+                DataDriftMetric(),
+                RegressionPerformanceMetric()
+            ])
 
-            # Add data drift and regression performance sections to the report
-            profile = Profile()
-            profile.add(data=X_test, y_true=y_test, y_pred=y_pred)
+            # Add the predictions to the test data
+            test_df["prediction"] = y_pred
 
-            # Data drift section
-            drift_section = DataDriftProfileSection()
-            drift_section.add_train_data(X_train)
-            drift_section.add_test_data(X_test)
-            report.add_section(drift_section)
-
-            # Regression performance metrics
-            performance_section = RegressionPerformanceProfileSection()
-            performance_section.add(y_true=y_test, y_pred=y_pred)
-            report.add_section(performance_section)
-
-            # Metrics to be displayed
-            metrics = {
-                "Mean Absolute Error (MAE)": mean_absolute_error(y_test, y_pred),
-                "Root Mean Squared Error (RMSE)": np.sqrt(mean_squared_error(y_test, y_pred)),
-                "R2 Score": r2_score(y_test, y_pred),
-            }
-
-            # Add metrics and profile to the report
-            report.add_metric_plots(MetricPlot(metrics))
-            report.add_profile(profile)
+            # Run the report
+            report.run(reference_data=train_df, current_data=test_df, column_mapping=column_mapping)
 
             # Save the report as an HTML file
             os.makedirs(os.path.dirname(self.model_monitoring_config.report_file_path), exist_ok=True)
-            report.save(self.model_monitoring_config.report_file_path)
+            report.save_html(self.model_monitoring_config.report_file_path)
 
             logging.info(f"Model performance report saved to {self.model_monitoring_config.report_file_path}")
         
