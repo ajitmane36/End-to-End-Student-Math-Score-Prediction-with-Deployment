@@ -10,4 +10,4 @@ catboost
 xgboost
 mlflow
 dagshub
-evidently
+dill
