@@ -54,7 +54,7 @@ def predict_datapoint():
         print("After Prediction")  # Debug message
 
         # Render the home.html template with prediction results
-        return render_template('home.html', results=results[0])
+        return render_template('home.html', results=round(results[0],0))
 
 # Run the Flask app
 if __name__ == "__main__":
