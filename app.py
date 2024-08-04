@@ -59,5 +59,5 @@ def predict_datapoint():
 # Run the Flask app
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")  # Run the app on all available network interfaces
-    # hit in browser 127.0.0.1:5000--> Homepage
-    # 127.0.0.1:5000/predictdata --> Prediction page
+    # hit in browser 127.0.0.1:5000--> Home Page
+    # 127.0.0.1:5000/predictdata --> Prediction Page
