@@ -70,7 +70,7 @@ This project predicts students' math scores. It covers the entire process from d
 
 ## Model Deployment
 ### Using Flask
-![Flask Deployment Screenshot](deployment images\flask deployment.png)
+![Flask Deployment Screenshot](C:\Users\ajitm\.vscode\data\mlproject\deplyment images\flask deployment.png)
 
 ### Using AWS Elastic Beanstalk
 ![AWS Elastic Beanstalk Deployment Screenshot](deployment images\AWS Elastic Beanstalk deployment.png)
