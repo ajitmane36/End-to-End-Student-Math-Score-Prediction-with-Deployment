@@ -17,7 +17,7 @@ This project predicts students' math scores. It covers the entire process from d
 
 
 ## Project Structure
-- **app.py**: Flask application script for deploying the model and handling user inputs.
+- **app.py**: Flask application script for deploying the model using flask and handling user inputs.
 - **application.py**: Flask application script for deploying the model on AWS Elastic Beanstalk.
 - **prediction_pipeline.py**: Scripts for making predictions based on user input.
 - **data_ingestion.py**: Scripts for data ingestion and preprocessing.
