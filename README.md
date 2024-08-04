@@ -12,9 +12,13 @@ This project predicts students' math scores. It covers the entire process from d
 - **MLflow**: Model lifecycle management.
 - **Flask**: Model Deployment.
 - **Dagshub**: Data and experiment management.
+- **AWS CodePipeline**: Continuous integration and delivery service for fast and reliable application and infrastructure updates.
+- **AWS Elastic Beanstalk**: Easy-to-use service for deploying and scaling web applications and services.
+
 
 ## Project Structure
 - **app.py**: Flask application script for deploying the model and handling user inputs.
+- **application.py**: Flask application script for deploying the model on AWS Elastic Beanstalk.
 - **prediction_pipeline.py**: Scripts for making predictions based on user input.
 - **data_ingestion.py**: Scripts for data ingestion and preprocessing.
 - **data_transformation.py**: Scripts for data transformation.
