@@ -67,3 +67,10 @@ This project predicts students' math scores. It covers the entire process from d
 
 2. **Prediction Pipeline:**
     - Handles user input and processes it through the trained model to provide predictions.
+
+## Model Deployment
+### Using Flask
+![Flask Deployment Screenshot]("C:\Users\ajitm\.vscode\data\mlproject\deployment images\flask deployment.png")
+
+### Using AWS Elastic Beanstalk
+![AWS Elastic Beanstalk Deployment Screenshot]("C:\Users\ajitm\.vscode\data\mlproject\deployment images\AWS Elastic Beanstalk deployment.png")
