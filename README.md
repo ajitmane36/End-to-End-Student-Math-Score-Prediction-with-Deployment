@@ -31,7 +31,7 @@ This project predicts students' math scores. It covers the entire process from d
 ## Setup Instructions
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/ajitmane36/mlproject.git
+    git clone https://github.com/ajitmane36/End-to-End-Student-Math-Score-Prediction-with-Deployment.git
     cd mlproject
     ```
 
