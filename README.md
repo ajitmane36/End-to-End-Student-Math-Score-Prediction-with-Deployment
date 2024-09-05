@@ -70,7 +70,7 @@ This project predicts students' math scores. It covers the entire process from d
 
 ## Model Deployment
 ### Using Flask
-![flask deployment](https://github.com/user-attachments/assets/d0cc2a59-f54b-4c30-98c1-7948d18322b5)
+![flask deployment](https://github.com/user-attachments/assets/8e024f1b-ca00-458a-bdd7-222b2c3216ac)
 
 ![flask deployment](https://github.com/user-attachments/assets/c7106fde-09d6-4207-9338-a222445486f7)
 
