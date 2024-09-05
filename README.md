@@ -70,7 +70,8 @@ This project predicts students' math scores. It covers the entire process from d
 
 ## Model Deployment
 ### Using Flask
-![flask deployment](https://github.com/user-attachments/assets/f0f2c35e-22f2-4821-8cb8-18bc424c4704)
+![flask deployment](https://github.com/user-attachments/assets/e0d92d16-8e5f-4d44-a680-6a1fedb6f446)
 
-### Using AWS Elastic Beanstalk
-![AWS Elastic Beanstalk deployment](https://github.com/user-attachments/assets/51b97933-c357-4575-8146-315ab2813982)
+![flask deployment](https://github.com/user-attachments/assets/93089cbd-0051-48a7-bc11-40f43cf22399)
+
+![flask deployment](https://github.com/user-attachments/assets/a008df5e-3a07-4970-87c9-d5f5ae0094c6)
