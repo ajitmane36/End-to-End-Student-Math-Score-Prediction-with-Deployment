@@ -7,8 +7,8 @@ import pandas as pd
 from flask import Flask, request, render_template
 
 # Set the path to the src directory to import custom modules
-sys.path.append(os.path.abspath("C:\\Users\\ajitm\\.vscode\\data\\mlproject\\src"))
-
+#sys.path.append(os.path.abspath("C:\\Users\\ajitm\\.vscode\\data\\mlproject\\src"))
+sys.path.append(os.path.abspath(r"C:\Users\ajitm\.vscode\data\End-to-End-Student-Math-Score-Prediction-with-Deployment\src"))
 
 from sklearn.preprocessing import StandardScaler
 from mlproject.pipelines.prediction_pipeline import CustomData, PredictPipeline  # Import custom data and prediction pipeline classes
